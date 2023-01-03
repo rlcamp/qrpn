@@ -2,10 +2,10 @@
 #include <complex.h>
 #include <stdio.h>
 
-/* reasonably large fixed stack size given this is not a turing complete implemetation */
+/* reasonably large fixed stack size given this is not a turing complete implementation */
 #define QRPN_STACK_SIZE_MAX 32
 
-/* not going to change in this unverse */
+/* not going to change in this universe */
 #define BASEUNITS 7
 
 struct quantity {
