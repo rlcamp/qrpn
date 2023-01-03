@@ -1,0 +1,67 @@
+20230103T0014Z:
+
+- Added workaround for cpow() precision issue
+
+- Fixed nchoosek implementation
+
+- Misc unit precision adjustments
+
+20211209T0432Z:
+
+- Added pick and roll
+
+- Fixed "nano[anything]" being parsed as nan
+
+- Backed off printed precision for large reals
+
+20211118T1655Z:
+
+- Fixed itenlog erroneously disallowing negative arguments
+
+- Removed badly behaving exact literal check
+
+- Fixed 2 not being a prime number
+
+20211114T2339Z:
+
+- Fixed whitespace issues
+
+- Reordered checks in evaluate_literal for speed and factored out the annoying QRPN_NOT_A_UNIT non-error error code
+
+- Added a least significant digit to the definition of a year
+
+20211114T1650Z:
+
+- Fixed a whole bunch of precision issues
+
+- Added a lot of explicit checks that arguments are real and/or nonnegative, when the operators later assume them to be
+
+- Doubled the speed of "isprime"
+
+- Added check that a literal enters as an exact representation of itself
+
+20211108T0813Z:
+
+- Added if...else..endif, begin...until, begin...while...repeat control logic
+
+20211027T0301Z:
+
+- Many fixes
+
+- Removed function table thing for now
+
+20211026T0336Z:
+
+- Snap before removing angle stuff
+
+20210920T1819Z:
+
+- Fixed some sketchy error handling in the numerator/denominator processing
+
+20210116T0100Z:
+
+- Removed readline support
+
+- Moved main() to qrpn.c as a weak symbol
+
+- Implemented SI prefixes-as-suffixes shortcut. For example, “20k” will now be interpreted as “20000”.
