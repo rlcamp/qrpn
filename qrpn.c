@@ -214,6 +214,7 @@ static const struct named_quantity named_quantities[] = {
     { .value = 1e3, .units = { 0, 1, 0, 0, 0, 0, 0 }, .name = "tonne", .abrv = "t", .alt_spelling = "ton" },
     { .value = 1e-3, .units = { 3, 0, 0, 0, 0, 0, 0 }, .name = "litre", .abrv = "L" },
     { .value = 1e-6, .units = { 3, 0, 0, 0, 0, 0, 0 }, .name = "cc" },
+    { .value = 1e-7, .units = { 2, 1, -2, 0, 0, 0, 0 }, .name = "erg" },
     { .value = 10e3, .units = { 2, 0, 0, 0, 0, 0, 0 }, .name = "hectare", .abrv = "ha" },
     { .value = 3600.0, .units = { 2, 1, -2, 0, 0, 0, 0 }, .abrv = "Wh" },
     { .value = 3600.0, .units = { 0, 0, 1, 1, 0, 0, 0 }, .abrv = "Ah" },
