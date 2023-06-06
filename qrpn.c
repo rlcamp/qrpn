@@ -1111,7 +1111,7 @@ char * qrpn_strerror(const int status) {
 
 enum control_statement { NONE, ELSE_OR_ENDIF, ENDIF, UNTIL_OR_WHILE, REPEAT };
 
-const char ** find_matching_control_statement(const char ** tp, const enum control_statement looking_for) {
+static const char ** find_matching_control_statement(const char ** tp, const enum control_statement looking_for) {
     /* used to skip over branches not taken */
     for (const char * token; (token = *tp); tp++) {
         if (!strcmp(token, "until") || !strcmp(token, "while"))
@@ -1140,7 +1140,7 @@ const char ** find_matching_control_statement(const char ** tp, const enum contr
     return NULL;
 }
 
-int qrpn_evaluate_tokens(struct quantity * const stack, int S, const char ** const tokens, const size_t nest_level) {
+static int qrpn_evaluate_tokens(struct quantity * const stack, int S, const char ** const tokens, const size_t nest_level) {
     for (const char ** tp = tokens, * token; (token = *tp); tp++) {
         if (!strcmp(token, "else") || !strcmp(token, "endif") || !strcmp(token, "until") || !strcmp(token, "while") || !strcmp(token, "repeat"))
             return nest_level ? S : QRPN_ERROR_UNMATCHED_CONTROL_STATEMENT;
