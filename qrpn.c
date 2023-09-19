@@ -1197,7 +1197,7 @@ static int qrpn_evaluate_tokens(struct quantity * const stack, int S, const char
             else tp_endif = tp_else_or_endif;
 
             /* choose which branch to take */
-            const char ** tp_branch = stack[S - 1].value ? tp : tp_else;
+            const char ** tp_branch = stack[S - 1].value ? tp : tp_else_or_endif;
             S--;
 
             S = qrpn_evaluate_tokens(stack, S, tp_branch + 1, nest_level + 1);
