@@ -432,7 +432,7 @@ static int evaluate_literal(struct quantity * stack, int S, const char * const t
         /* otherwise, token was not a unit name, parse it as a simple literal */
         double d = 0, m = 0, s = 0;
 
-        if (strpbrk(token + 1, "d°") && sscanf(token, "%lf%*[d°]%lf%*[m']%lf%*[s\"]", &d, &m, &s))
+        if (!(token == strstr(token, "0x")) && strpbrk(token + 1, "d°") && sscanf(token, "%lf%*[d°]%lf%*[m']%lf%*[s\"]", &d, &m, &s))
             tmp.value = copysign(fabs(d) + m / 60.0 + s / 3600.0, d) * M_PI / 180.0;
         else if (strpbrk(token, "T") && strpbrk(token, "Z")) {
             tmp.value = datestr_to_unix_seconds(token);
