@@ -278,6 +278,9 @@ static const struct named_quantity named_quantities[] = {
     { .value = 0.45359237, .units = { 0, 1, 0, 0, 0, 0, 0 }, .name = "lbm" },
     { .value = 4.448222, .units = { 1, 1, -2, 0, 0, 0, 0 }, .name = "lbf" },
     { .value = 6.35029318, .units = { 0, 1, 0, 0, 0, 0, 0 }, .name = "stone", .abrv = "st" },
+
+    { .value = 6894.75788951578, .units = { -1, 1, -2, 0, 0, 0, 0 }, .abrv = "psi"},
+    { .value = 133322.387415, .units = { -2, 1, -2, 0, 0, 0, 0 }, .abrv = "Hg"},
 };
 
 static const size_t named_quantity_count = sizeof(named_quantities) / sizeof(named_quantities[0]);
