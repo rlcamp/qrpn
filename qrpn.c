@@ -115,7 +115,7 @@ static int isprime(const unsigned long long n) {
 
     const unsigned long long stop = ceil_isqrt(n);
 
-    for (unsigned long long m = 3; m < stop; m += 2)
+    for (unsigned long long m = 3; m <= stop; m += 2)
         if (!(n % m)) return 0;
 
     return 1;
