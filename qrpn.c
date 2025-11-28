@@ -100,22 +100,18 @@ static unsigned long long nchoosek(const unsigned long long n, const unsigned lo
     return n_choose_k;
 }
 
-static unsigned long long ceil_isqrt(unsigned long long n) {
-    unsigned long long this = n / 2;
-    if (!this) return n;
-
-    for (unsigned long long next = this; (next = (this + n / this) / 2) < this; this = next);
-
-    return this * this < n ? this + 1 : this;
-}
-
 static int isprime(const unsigned long long n) {
+    /* handle trivial special cases */
     if (2 == n) return 1;
-    else if (1 == n || !(n % 2)) return 0;
+    else if (n < 2 || !(n % 2)) return 0;
 
-    const unsigned long long stop = ceil_isqrt(n);
+    /* iteratively calculate ceil(sqrt(n)) */
+    unsigned long long ceil_sqrt_n = n / 2;
+    for (unsigned long long next = ceil_sqrt_n; (next = (ceil_sqrt_n + n / ceil_sqrt_n) / 2) < ceil_sqrt_n; ceil_sqrt_n = next);
+    if (ceil_sqrt_n * ceil_sqrt_n < n) ceil_sqrt_n++;
 
-    for (unsigned long long m = 3; m <= stop; m += 2)
+    /* the expensive loop, which divides by all the odd values up to the above limit */
+    for (unsigned long long m = 3; m <= ceil_sqrt_n; m += 2)
         if (!(n % m)) return 0;
 
     return 1;
